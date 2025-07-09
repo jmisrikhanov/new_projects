@@ -60,7 +60,7 @@ let increment = (id) => {
     search.item += 1;
   }
 
-  console.log(basket);
+  // console.log(basket);
   update(selectedItem.id);
 };
 
@@ -74,12 +74,20 @@ let decrement = (id) => {
     search.item -= 1;
   }
 
-  console.log(basket);
+  // console.log(basket);
   update(selectedItem.id);
 };
 
 let update = (id) => {
   let search = basket.find((x) => x.id === id);
-  console.log(search.item);
+  // console.log(search.item);
   document.getElementById(id).innerHTML = search.item;
+  calculation();
+};
+
+let calculation = () => {
+  let cartIcon = document.getElementById("cartAmount");
+  cartIcon.innerHTML = basket
+    .map((num) => num.item)
+    .reduce((acc, curr) => (acc += curr), 0);
 };
