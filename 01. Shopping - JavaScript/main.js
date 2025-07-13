@@ -65,10 +65,10 @@ let increment = (id) => {
     search.item += 1;
   }
 
-  localStorage.setItem("data", JSON.stringify(basket));
-
   // console.log(basket);
   update(selectedItem.id);
+
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 
 let decrement = (id) => {
@@ -82,10 +82,12 @@ let decrement = (id) => {
     search.item -= 1;
   }
 
-  localStorage.setItem("data", JSON.stringify(basket));
+  update(selectedItem.id);
+  basket = basket.filter((x) => x.item !== 0);
 
   // console.log(basket);
-  update(selectedItem.id);
+
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 
 let update = (id) => {
