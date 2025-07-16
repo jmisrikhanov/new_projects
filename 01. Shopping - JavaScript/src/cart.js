@@ -34,7 +34,7 @@ let generateCartItem = () => {
               <div id=${id} class="quantity">${item}</div>
               <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
             </div>
-            <h3></h3>
+            <h3>$ ${item * search.price}</h3>
         </div>
         </div>
         `;
@@ -68,6 +68,7 @@ let increment = (id) => {
   }
 
   // console.log(basket);
+  generateCartItem();
   update(selectedItem.id);
 
   localStorage.setItem("data", JSON.stringify(basket));
