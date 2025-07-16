@@ -88,6 +88,7 @@ let decrement = (id) => {
   basket = basket.filter((x) => x.item !== 0);
 
   // console.log(basket);
+  generateCartItem();
 
   localStorage.setItem("data", JSON.stringify(basket));
 };
