@@ -99,6 +99,7 @@ let update = (id) => {
   // console.log(search.item);
   document.getElementById(id).innerHTML = search.item;
   calculation();
+  TotalAmount();
 };
 
 let removeItem = (id) => {
