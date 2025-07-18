@@ -109,3 +109,24 @@ let removeItem = (id) => {
 
   generateCartItem();
 };
+
+let TotalAmount = () => {
+  if (basket.length !== 0) {
+    let amount = basket
+      .map((x) => {
+        let { id, item } = x;
+        let search = shopItemsData.find((y) => y.id === id) || [];
+
+        return item * search.price;
+      })
+      .reduce((acc, curr) => {
+        return (acc += curr);
+      }, 0);
+    // console.log(amount);
+    label.innerHTML = `
+    <h2>Total Bill : $ ${amount}</h2>
+    `;
+  } else return;
+};
+
+TotalAmount();
