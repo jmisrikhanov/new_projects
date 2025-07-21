@@ -109,6 +109,7 @@ let removeItem = (id) => {
 
   generateCartItem();
   TotalAmount();
+  calculation();
 
   localStorage.setItem("data", JSON.stringify(basket));
 };
